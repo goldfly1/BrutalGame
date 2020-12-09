@@ -34,12 +34,16 @@ window.addEventListener('keydown', (KeyboardEvent) =>
                     good = true;
                         }else {
                             misses--;
-                            if( misses === 0){
-                                update();
-                                goodbye();
-                                guessedImg();
-                                /*location.reload();*/
-                             }else {
+                            update();
+                            if( misses === 2){
+                                innocentImg();
+                              }
+                              if( misses === 1){
+                                  afraidImg();
+                                }
+                                if( misses === 0){
+                                    goodbye();
+                                  }else {
                                 update();
                                 bad(); }}
                 }else{already();}
@@ -66,7 +70,7 @@ window.addEventListener('keydown', (KeyboardEvent) =>
             }
         }
         if (youWin === true){
-          location.reload();
+          restart();
         }
     }
 
@@ -100,20 +104,35 @@ window.addEventListener('keydown', (KeyboardEvent) =>
   }
   function goodbye() {
     document.querySelector("#billboard").innerHTML = "Goodbye to you";
+    goodbyeImg();
+    setTimeout(restart, 8000);
   }
   function afraid() {
     document.querySelector("#billboard").innerHTML = "Don't let them see you're afraid kid!";
   }
 
-  function guessedImg() {
-    document.querySelector("#guessedImg").innerHTML = ('<div class="embed-responsive embed-responsive-16by9">'
+  function goodbyeImg() {
+    document.querySelector("#header").innerHTML = ('<div class="embed-responsive embed-responsive-4by3">'
    + '\n<iframe class="embed-responsive-item" src="assets/images/goodbye.mp4" allowfullscreen></iframe>'
    +'\n</div>')
   }
-  function stepsImg() {
-    document.querySelector("#stepsImg").innerHTML = "Don't let them see you're afraid kid!";
+  function innocentImg() {
+    document.querySelector("#header").innerHTML = ('<div class="embed-responsive embed-responsive-4by3">'
+    + '\n<iframe class="embed-responsive-item" src="assets/images/innocent.mp4" allowfullscreen></iframe>'
+    +'\n</div>')
+    setTimeout(loadHeader, 5000);
   }
-  function wordImg() {
-    document.querySelector("#wordImg").innerHTML = "Don't let them see you're afraid kid!";
+  function afraidImg() {
+    document.querySelector("#header").innerHTML = ('<div class="embed-responsive embed-responsive-4by3">'
+    + '\n<iframe class="embed-responsive-item" src="assets/images/afraid.mp4" allowfullscreen></iframe>'
+    +'\n</div>')
+    setTimeout(loadHeader, 4000);
+  }
+  function loadHeader() {
+
+    document.querySelector("#header").innerHTML = '<img src="assets/images/top.jpg" class="card-img-top w=100" alt="The Brutal Dirty Dozen Hangman">';
+  }
+  function restart() {
+    location.reload()
   }
 
