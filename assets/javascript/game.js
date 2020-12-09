@@ -126,7 +126,7 @@ window.addEventListener('keydown', (KeyboardEvent) =>
     document.querySelector("#header").innerHTML = ('<div class="embed-responsive embed-responsive-4by3">'
     + '\n<iframe class="embed-responsive-item" src="assets/images/afraid.mp4" allowfullscreen></iframe>'
     +'\n</div>')
-    setTimeout(loadHeader, 4000);
+    setTimeout(loadHeader, 5000);
   }
   function loadHeader() {
 
