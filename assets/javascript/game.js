@@ -65,6 +65,7 @@ function winImg() {
   }
   function start() {
     selected = "";
+    letter = "";
     misses = 6;
     guessed = [];
     wordMatch = "";
@@ -121,6 +122,64 @@ function winImg() {
   +'</div>'
   }
 
+  function content(letter){
+    letter.style.backgroundColor="red";
+    good = false;
+    console.log(letter.innerText);
+    selected = letter.innerText.toLowerCase();
+    console.log(selected);
+    logic()
+  }
+
+  function logic(){
+    if (selected >= "a" && selected <= "z"){
+      if (guessed.indexOf(selected) === -1){
+      guessed.push(selected);
+      guessed = guessed.sort();
+      console.log("guessed  " + guessed);
+        if (wordMatch.indexOf(selected)!=-1){
+          good = true;
+              }else {
+                  misses--;
+                  update();
+                  if( misses === 5){
+                    riotImg();
+                  } if( misses === 4){
+                    innocentImg();
+                      } if( misses === 3){
+                        riotImg();
+                        } if( misses === 2){
+                          afraidImg();
+                          } if( misses === 1){
+                            riotImg();
+                            } if( misses === 0){
+                              goodbye();
+                            } else {
+                                update();
+                                bad(); }}
+            }else{already();}
+    } else { wrongType();}
+
+  if (good != false){
+      afraid();
+  for (x=0;x < wordMatch.length;x++){
+    if (selected === wordMatch.charAt(x)){
+        if (x === blank.length){
+            (blank = blank.slice(0, blank.length ) + selected);
+            }
+            else {blank = blank.slice(0, x) + selected + blank.slice(x+1);
+            }
+        }
+        win();
+        if (youWin === true){
+        break;
+        }
+    }
+    if (youWin === true){
+      winImg();
+    }}
+  }
+
 
 
 let randy = ["Fizzling","Quiz","Quinsy","Jives","Babbling","Bopped","Swizz","Shagginess","Zigzagging","Buzzed","Klutz","Ivory","Banjo","Azure","Blizzard","Baffles","Buffoon","Daiquiri","Queue","Groggy","Vortex","Voodoo","Schnapps","Schizophrenia","Zephyr","Spritz","Thriftless","Thumbscrew","Squawk","Voyeurism","Vaporize","Zodiac","Rhubarb","Transgress","Rickshaw","Snazzy","Quixotic","Knapsack","Jinx","Affix"];
@@ -129,87 +188,26 @@ let randy = ["Fizzling","Quiz","Quinsy","Jives","Babbling","Bopped","Swizz","Sha
 
 /*provide a guess the letter prompt with a list of already selected letters*/
 
-    let selected = "";
-    let misses = 6;
-    let guessed = [];
-    let wordMatch = "";
-    let blank = "";
-    let youWin = false;
-    let word = randy[Math.floor(Math.random() * randy.length)].toLowerCase();
+let selected = "";
+let letter = "";
+let misses = 6;
+let guessed = [];
+let wordMatch = "";
+let blank = "";
+let youWin = false;
+let word = randy[Math.floor(Math.random() * randy.length)].toLowerCase();
+let good = false;
+
     for (x of word){
     blank = blank.concat(" _");
     wordMatch = wordMatch.concat(" "+ x );
     }
 
-console.log("guessed = " + guessed);
 window.addEventListener('keydown', (KeyboardEvent) =>
     { console.log(KeyboardEvent.key);
         let keyIn = (KeyboardEvent.key);
-        let good = false;
+        good = false;
         selected = keyIn.toLowerCase();
-
-        if (keyIn >= "a" && keyIn <= "z"){
-          if (guessed.indexOf(selected) === -1){
-          guessed.push(selected);
-          guessed = guessed.sort();
-          console.log("guessed  " + guessed);
-            if (wordMatch.indexOf(keyIn)!=-1){
-              good = true;
-                  }else {
-                      misses--;
-                      update();
-                      if( misses === 5){
-                        riotImg();
-                      }
-                        if( misses === 4){
-                        innocentImg();
-                          }
-                          if( misses === 3){
-                            riotImg();
-                            }
-                            if( misses === 2){
-                              afraidImg();
-                              }
-                              if( misses === 1){
-                                riotImg();
-                              }
-                                if( misses === 0){
-                                  goodbye();
-                                }else {
-                          update();
-                          bad(); }}
-                }else{already();}
-        } else { wrongType();}
-
-
-
-
-    if (good != false){
-        afraid();
-    for (x=0;x < wordMatch.length;x++){
-        if (selected === wordMatch.charAt(x)){
-            if (x === blank.length){
-                (blank = blank.slice(0, blank.length ) + selected);
-                }
-                else {blank = blank.slice(0, x) + selected + blank.slice(x+1);
-                }
-
-            }
-            win();
-
-            if (youWin === true){
-            break;
-            }
-        }
-        if (youWin === true){
-          winImg();
-
-
-        }
-    }
-
-}
-
-);/*This is the end of my event call*/
-
+        logic()
+});
 
