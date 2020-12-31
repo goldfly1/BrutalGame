@@ -239,7 +239,7 @@ function winImg() {
 
 
 
-let randy = ["Fizzling","Quiz","Quinsy","Jives","Babbling","Bopped","Swizz","Shagginess","Zigzagging","Buzzed","Klutz","Ivory","Banjo","Azure","Blizzard","Baffles","Buffoon","Daiquiri","Queue","Groggy","Vortex","Voodoo","Schnapps","Schizophrenia","Zephyr","Spritz","Thriftless","Thumbscrew","Squawk","Voyeurism","Vaporize","Zodiac","Rhubarb","Transgress","Rickshaw","Snazzy","Quixotic","Knapsack","Jinx","Affix"];
+let randy = ["Fizzling","Quiz","Quinsy","Jives","Babbling","Bopped","Swizz","Shagginess","Zigzagging","Buzzed","Klutz","Ivory","Banjo","Azure","Blizzard","Baffles","Buffoon","Daiquiri","Queue","Groggy","Vortex","Voodoo","Schnapps","Schizophrenia","Zephyr","Spritz","Thriftless","Thumbscrew","Squawk","Voyeurism","Vaporize","Zodiac","Rhubarb","Transgress","Rickshaw","Snazzy","Quixotic","Knapsack","Jinx","Affix","Miser","Index","Defang","Bludgeon","Blurt","Bridge","Coffin","Cruicible","Damper","Pontiff","Gander","Harpy","Harvest","Panic","Manic","Dizzy","Pragmatic","Dragon","Vivify","Philanthropy","Append","Gastric","Major","Dogrel","Convene","Rhubric","Dozing","Bowing","Rowing","Posing","Manic","Extend","Graphic","Gripping","Exult","Comfort","Valour","Vexing","Vomit","Grapeshot","Leaden","Bowels","Pantomine","Parish","Garish","Pollux","Griffin","Bollux","Maggot","Strand","Sling","Confound","Flagon","Victor","Hansome","Flange","Capstone"];
 
 
 
